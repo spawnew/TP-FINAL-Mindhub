@@ -53,4 +53,12 @@
     width: 3rem;
  }
 
- 
+ .formulario{
+    display :flex;
+    background-color: aqua;
+justify-content: center;
+align-items: center;    
+ }
+ .formu{
+    width: 20rem;
+ }
