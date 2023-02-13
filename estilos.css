@@ -1,11 +1,56 @@
-.navbar-collapse .navbar-nav .nav-link{
-    display:flex;
-    justify-content: space-between;
-    justify-content: space-around;
-   margin-right: 100px;
-    background-color: aqua;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   
+   
 }
+
+
+
 
  img{
     width: 60px;
  }
+.card{
+    display: flex;
+    width: 17rem;
+    height:17rem ;
+  
+}
+ 
+
+ 
+ .card-body {
+    display:flex;
+    justify-content: space-between;
+    
+ }
+
+ .card img {
+    display: flex;
+    width:14rem;
+    height:9rem;
+    align-items: center;
+    justify-content:space-between;
+    justify-items: center;
+    align-self:center;
+ }
+
+ .card-body1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+    
+ 
+ footer{
+    background-color: antiquewhite;
+ }
+    
+ footer .redes img{
+    border-radius: 200px;
+    width: 3rem;
+ }
+
+ 
