@@ -1,0 +1,11 @@
+.navbar-collapse .navbar-nav .nav-link{
+    display:flex;
+    justify-content: space-between;
+    justify-content: space-around;
+   margin-right: 100px;
+    background-color: aqua;
+}
+
+ img{
+    width: 60px;
+ }
