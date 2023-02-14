@@ -11,7 +11,7 @@
   </head>
 <header>
 
-  < <div class="container-fluid">
+   <div class="container-fluid">
 
     <div class="row">
      
@@ -20,33 +20,27 @@
             <a class="navbar-brand" href="#"><img src="./fotos/logo.png" alt="logo"></a>        
           </div>
        <div class="col-7"></div>
-       <div class="col-4-md">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+       <div class="col-4">
+        
           <div class="navbar-nav">
-            <a class="nav-link" aria-current="page" href="#">Home</a>
-            <a class="nav-link" href="./upcomingevents.html">Upcomingevents</a>
-            <a class="nav-link" href="./pastevents.html">Past Event</a>
-            <a class="nav-link" href="./contact.html">Contact</a>
+            <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+            <a class="nav-link" href="./upcomingevents.html">Upcoming events</a>
+            <a class="nav-link" href="./Detail.html">Detail</a>
+            <a class="nav-link" href="#">Contact</a>
             <a class="nav-link" href="./stats.html">Stats</a>
-            
+            </div>
+       </div>
+        </nav>
             
             </div>
-            
-          </div>
-        </nav>
-        </div>  
-        
-      
-      </div>
-      
-    
-  </div>
+        </div>
+          
     <div class="container">
       <div class="row">
      
         <div class="col-1">
-          <a href="#" >
-            <img src="./fotos/anterior.png" alt="">
+          <a href="./pastevents.html" >
+            <img src="./fotos/anterior.png" alt="anterior">
           </a>
                 </div>
                 <div class="col-4">
@@ -57,8 +51,8 @@
                   <h1>Contact us</h1>
                 </div>
                 <div class="col-1">
-                  <a href="./upcomingevents.html">
-                    <img src="./fotos/siguiente.png">
+                  <a href="./stats.html">
+                    <img src="./fotos/siguiente.png" alt="siguiente">
                   </a>
                 </div>
       </div>
@@ -66,42 +60,37 @@
     </div>
 </header>
 
-
- 
-    
-      
- 
-
 <body>
+    <main> 
 
     <div class="formulario">             
                    
-        <form action="" method="">
+        <form action="" method="get">
         <div>
             <fieldset>
-                <legend><b>Datos Personales</b></legend>
-                <label for="nombre">Nombre:</label>
+               
+                <label for="nombre">Name:</label>
                 <input class="formu" type="text "  id="nombre" name="nombre"  />
         </div>               
                           
 <div>
     <br>
-    <label for="email"> E - Mail  :</label>
-                    <input type="email"class="formu" id="email" name="email" />   
+    <label for="email"> Email :</label>
+                    <input type="email" class="formu" id="email" name="email" />   
 
 </div>
                     
         <br>        
           <div>
-            <label for="mensaje"> <b>Mensaje:</b></label>
+            <label for="mensaje">Mensagge:</label>
             <textarea
               name="comentario"
               id="animated"
               required
               placeholder="tu mensaje"
-              cols="40"
-              rows="10"
-              imput type="textarea"
+              cols="39"
+              rows="8"
+              input type="textarea"
             ></textarea>
             <button  type="submit">enviar</button>
             
@@ -113,7 +102,7 @@
                         <br>
                         <br>
     
-            
+                    </main>       
 
 
 
@@ -181,7 +170,7 @@
 
 
 
-
+</body>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
