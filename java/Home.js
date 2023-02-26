@@ -69,11 +69,13 @@ function crearlista (arr){
             let foto=document.createElement('img')
             let precio=document.createElement('h7')
             let newLink = document.createElement("a")
-
+            let fecha=document.createElement('h7')
+            let categoria=document.createElement('h7') 
+            fecha.textContent=car.date
             newLink.href = "./Detail.html"
 newLink.innerText = "Ver mas.."      
       div.className="card"
-          
+          categoria.textContent=car.category
             foto.src=car.image
             foto.className = "card-img-top"
             titulo.className="card.title"
@@ -84,6 +86,8 @@ newLink.innerText = "Ver mas.."
        
         div.appendChild(foto)
         div.appendChild(titulo)
+        div.appendChild(fecha)
+        div.appendChild(categoria)
         div.appendChild(precio)
         div.appendChild(newLink)
         

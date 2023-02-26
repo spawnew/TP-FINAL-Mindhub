@@ -14,8 +14,8 @@
  }
 .card{
     display: flex;
-    width: 17rem;
-    height:17rem ;
+    width: 20rem;
+    height:20rem ;
     align-items: center;
     border: solid 1px;
    
@@ -92,7 +92,16 @@ th{
 
 ul{
    display: flex;
-   justify-content:space-around;
+   justify-content:space-between;
    flex-wrap: wrap;
    
+}
+
+@media only screen and (min-width:200px)and (max-width:600px) { 
+    
+   .cohort{
+      display:flex;
+      flex-wrap: wrap;
+     
+   }
 }
