@@ -60,7 +60,7 @@ function crearlista (arr){
             let foto=document.createElement('img')
             let precio=document.createElement('h7')
             let newLink = document.createElement("a")
-newLink.href = "./Detail"
+newLink.href = "./Detail.html"
 newLink.innerText = "Ver mas.."      
       div.className="card"
         
@@ -68,7 +68,7 @@ newLink.innerText = "Ver mas.."
             foto.className = "card-img-top"
             titulo.className="card.title"
           precio.className="card-body"
-            precio.textContent= car.price
+          precio.innerText="price"+" "+"$"+car.price
         titulo.textContent=car.name
         
         div.appendChild(foto)
