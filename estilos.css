@@ -16,6 +16,8 @@
     display: flex;
     width: 17rem;
     height:17rem ;
+    align-items: center;
+   
   
 }
  
@@ -84,3 +86,7 @@ th{
     color: aliceblue;
     
 } 
+
+ul{
+   display: flex;
+}
