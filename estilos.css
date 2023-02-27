@@ -18,6 +18,7 @@
     height:20rem ;
     align-items: center;
     border: solid 1px;
+    margin-bottom: 50px;
    
   
 }
@@ -94,6 +95,7 @@ ul{
    display: flex;
    justify-content:space-between;
    flex-wrap: wrap;
+   
    
 }
 
