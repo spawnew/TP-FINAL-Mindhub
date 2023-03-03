@@ -6,7 +6,7 @@ const atrasado =[];
    for (let i=0; i<data.events.length;i++){
        if(fecha<data.events[i].date)
        {
-           let atrasa=data.events[i]           ;
+           let atrasa=data.events[i]  ;
            atrasado.push(atrasa)
            
        }

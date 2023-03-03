@@ -30,10 +30,6 @@ const card13=[];
 card13.push(data.events[13])
 
 
-
-
-
-
 crearlista(card0)
 crearlista(card1)
 crearlista(card2)
