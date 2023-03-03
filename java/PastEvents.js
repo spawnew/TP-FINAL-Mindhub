@@ -12,49 +12,16 @@ const atrasado =[];
        }
     }
    
-
-
-
-    const card0=[];
-card0.push(atrasado[0])
-const card1=[];
-card1.push(atrasado[1])
-const card2=[];
-card2.push(atrasado[2])
-
-const card3=[];
-card3.push(atrasado[3])
-
-const card4=[];
-card4.push(atrasado[4])
-
-const card5=[];
-card5.push(atrasado[5])
-const card6=[];
-card6.push(atrasado[6])
-
-
-
-crearlista(card0)
-crearlista(card1)
-crearlista(card2)
-crearlista(card3)
-crearlista(card4)
-crearlista(card5)
-crearlista(card6)
-
-
-
-
-
+    crearlista(atrasado);
+ 
 
 function crearlista (arr){
+    for(let car of arr){ 
     const lista=document.getElementById('carta')
 
     let div=document.createElement("div")
-    
-        
-         for(let car of arr){ 
+  
+      
            
             let titulo = document.createElement('h5')
             let foto=document.createElement('img')
@@ -65,14 +32,18 @@ function crearlista (arr){
             fecha.textContent=car.date
             newLink.href = "./Detail.html"
 newLink.innerText = "Ver mas.."      
-      div.className="card"
+     
+div.className="card"
+
           categoria.textContent=car.category
             foto.src=car.image
+           
             foto.className = "card-img-top"
             titulo.className="card.title"
           precio.className="card-body"
-         
+            
           precio.innerText="price"+" "+"$"+car.price
+            
         titulo.textContent=car.name
        
         div.appendChild(foto)
@@ -85,9 +56,10 @@ newLink.innerText = "Ver mas.."
         
         
         
-    }
+    
         
     lista.appendChild(div)
 
-
+         }
 }
+ 
