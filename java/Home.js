@@ -21,10 +21,7 @@ function crearlista (arr){
     const lista=document.getElementById('carta')
 
     let div=document.createElement("div")
-    
-        
-         
-           
+       
             let titulo = document.createElement('h5')
             let foto=document.createElement('img')
             let precio=document.createElement('h7')

@@ -168,7 +168,7 @@ var data = {
         "capacity":9000,
         "estimate":9000,
         "price":250
-      }
-    ]
+      },
+  ]
   };
  
