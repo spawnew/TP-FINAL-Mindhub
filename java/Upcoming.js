@@ -1,6 +1,6 @@
 
 const fecha=data.currentDate;
- let adelantado=[];
+ const adelantado=[];
      for (let i=0; i<data.events.length;i++){
         if(fecha>data.events[i].date)
         {
@@ -25,9 +25,9 @@ const formu=document.getElementById('formulario')
    formu.addEventListener('submit',(e)=>{ 
         e.preventDefault();//evita q recargue la pagina
     let encontre=[];  
-     encontre=data.events.filter(el =>
+     encontre=adelantado.filter(el =>
     
-         (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase()))
+         (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase()))
     )
 
    
