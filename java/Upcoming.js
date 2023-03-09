@@ -29,15 +29,25 @@ const formu=document.getElementById('formulario')
     
          (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase()))
     )
-
+         
+           
+        
    
     console.log(encontre)
     crearlista(encontre);
+    noEncontre()
    
     
     
     })// los form siempre van submit
                                   // (e)=> lo que quiero q pase al escuchar ese
+
+  function noEncontre(){
+    let nopo=document.createElement('h1');
+    nop.innertext="no encontre revise sus filtros"
+
+  }
+    
 
   
                                        
@@ -51,7 +61,7 @@ const formu=document.getElementById('formulario')
 
 
 
-function crearlista (arr){
+function crearlista (arr){ // crear la lista y la mete en las cartas
    
     let lista=document.getElementById('carta')
     lista.innerHTML=""
@@ -93,16 +103,31 @@ newLink.innerText = "Ver mas.."
 }
 
 
+let box = document.querySelectorAll("input[type='checkbox']")
+
+console.log(box)
+box.forEach(boton =>boton.addEventListener('change',filtrar )) //a cada check le agrega el addevent y escucha cada vez q cambia el valor y ejecute la funcion
 
 
 
 
+function filtrar (){
+    let filtrado=Array.from(box).filter(checkbox => checkbox.checked)//ACA ME DA LOS checkbox q estan chequeados
+    console.log(filtrado[0].value)
+
+    let encontre1=[];  
+     
+encontre1=filtro(adelantado,filtrado[0].value)
+ crearlista (encontre1)
+}
 
 
 
+function filtro(arr,value){
 
-
-
+   let filtros=arr.filter(el=> (el.category.includes(value)))
+   return filtros
+}
     
 
 
