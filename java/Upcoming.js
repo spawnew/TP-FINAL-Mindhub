@@ -1,4 +1,4 @@
-
+console.log(data.events)
 const fecha=data.currentDate;
  const adelantado=[];
      for (let i=0; i<data.events.length;i++){
@@ -68,16 +68,18 @@ function crearlista (arr){ // crear la lista y la mete en las cartas
             let titulo = document.createElement('h5')
             let foto=document.createElement('img')
             let precio=document.createElement('h7')
-            let newLink = document.createElement("a")
+            
             let fecha=document.createElement('h7')
             let categoria=document.createElement('h7') 
             let description = document.createElement('p')
             fecha.textContent=car.date
-            newLink.href = "./Detail.html"
-newLink.innerText = "Ver mas.."      
+            let link = document.createElement('a')
+        link.textContent = 'ver mas'
+        link.href = `./detail.html?id=${car._id}`
+           
       div.className="card"
           categoria.textContent=car.category
-            foto.src=car.image
+            foto.src=` ${car.image}`
             foto.className = "card-img-top"
             titulo.className="card.title"
           precio.className="card-body"
@@ -92,7 +94,7 @@ newLink.innerText = "Ver mas.."
         div.appendChild(categoria)
         div.appendChild(precio)
         div.appendChild(description)
-        div.appendChild(newLink)     
+        div.appendChild(link)     
         lista.appendChild(div)
     }
    
