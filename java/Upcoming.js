@@ -99,7 +99,8 @@ function crearlista (arr){ // crear la lista y la mete en las cartas
     }
    
 }
-
+/////////////////////////////////////////////////////////////////////////
+//checkbox
 
 let box = document.querySelectorAll("input[type='checkbox']")
 
@@ -107,10 +108,12 @@ console.log(box)
 box.forEach(boton =>boton.addEventListener('change',filtrar )) //a cada check le agrega el addevent y escucha cada vez q cambia el valor y ejecute la funcion
 
 
-
-
 function filtrar (){
-    let filtrado = Array.from(box).filter(checkbox => checkbox.checked)//ACA ME DA LOS checkbox q estan chequeados
+  
+     let filtrado = Array.from(box).filter(checkbox => checkbox.checked)//ACA ME DA LOS checkbox q estan chequeados
+   
+   
+   
     console.log(filtrado[0].value)
 
 let encontre1= filtro(adelantado,filtrado[0].value)
@@ -119,7 +122,7 @@ let encontre1= filtro(adelantado,filtrado[0].value)
 
 function filtro(arr,value){
 
-    let filtrex=arr.filter(arr=>(arr.category.includes(value)))
+    let filtrex=arr.filter(arr =>(arr.category.includes(value)))
 
 
 
