@@ -24,39 +24,13 @@ async function getData(){
     let respuesta = await fetch(urlAPI)
     // console.log(respuesta)
     let datos = await respuesta.json()
-<<<<<<< Updated upstream
-     console.log(datos.events)
-    crearCards(datos)
-=======
      
     crearlista(datos)
->>>>>>> Stashed changes
    } catch {
     console.log('ocurrio un error con mi api')
    }
 }
 
-<<<<<<< Updated upstream
-getData()
-
-function crearCards(arr){
-    let contenedor = document.querySelector('.contenedor')
-
-    console.log(arr.events)
-    arr.events.forEach(evento => {
-        let div = document.createElement('div')
-        div.innerHTML = `
-        <div class="card">
-            <h2 class="nombre">${evento.name}</h2>
-            <img src="${evento.image}" alt="">
-            <p class="species">${evento.category}</p>
-        </div>`
-        contenedor.appendChild(div)
-    });
-
-    console.log(contenedor)
-}
-=======
  getData()
 
 // function crearCards(arr){
@@ -76,7 +50,6 @@ function crearCards(arr){
 
 //     console.log(contenedor)
 // }
->>>>>>> Stashed changes
 
     
 
