@@ -10,7 +10,7 @@
 
 
  img{
-    width: 60px;
+    width:5rem;
  }
 .card{
     display: flex;
@@ -101,12 +101,51 @@ ul{
 }
 
 
-@media only screen and (min-width:200px) and (max-width:600px) { 
+@media only screen and (min-width:100px) and (max-width:600px) { 
     
    .cohort{
       display:flex;
       flex-wrap: wrap;
      
    }
+<<<<<<< Updated upstream
     
 }
+=======
+  
+   img{
+      width:3rem;
+   }
+   .card img {
+      display: flex;
+      width:5rem;
+      height:4rem;
+      align-items: center;
+      justify-content:space-between;
+      justify-items: center;
+      align-self:center;
+   }
+
+
+
+}
+
+
+.descripcion{
+   font-size:0.9rem;
+   
+}
+.card-img-top1{
+   border-radius: 10px;
+   box-shadow: 20px;
+   
+   
+}
+.listo{
+
+   display:flex;
+   align-items: center;
+   justify-content: space-around;
+  
+}
+>>>>>>> Stashed changes

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 
 
 const card0=[];
@@ -49,13 +50,39 @@ crearlista(card14)
 
 
 
+=======
+
+      
+async function getData(){
+  try{
+   //////genero un error para mostrar 
+   //throw new Error('se exploto el servidor')
+   let respuesta = await fetch(urlAPI)
+   // console.log(respuesta)
+   let datos = await respuesta.json()
+    
+   crearlista(datos)
+  } catch {
+   console.log('ocurrio un error con mi api')
+  }
+}
+
+getData();
+>>>>>>> Stashed changes
 
 
 
 
+<<<<<<< Updated upstream
 function crearlista (arr){
     const lista=document.getElementById('carta')
 
+=======
+function crearlista (arr){ // crear la lista y la mete en las cartas
+  let lista=document.getElementById('carta')
+    lista.innerHTML=""
+    arr.events.forEach ( car => {
+>>>>>>> Stashed changes
     let div=document.createElement("div")
     
         
@@ -85,7 +112,33 @@ newLink.innerText = "Ver mas.."
         div.appendChild(fecha)
         div.appendChild(categoria)
         div.appendChild(precio)
+<<<<<<< Updated upstream
         div.appendChild(newLink)
+=======
+        div.appendChild(description)
+        div.appendChild(link)     
+        lista.appendChild(div)
+  }
+ 
+)
+}
+
+const formu=document.getElementById('formulario')
+    const input=document.getElementById('nombre')
+
+//includes()
+ 
+//toUpperCase()//para poner en minuscula todo no olvidar el parentesis
+   formu.addEventListener('submit',(e)=>{ 
+        e.preventDefault();//evita q recargue la pagina
+    let encontre=[];  
+     encontre=data.events.filter(el =>
+    
+         (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase()))
+    )
+         
+           
+>>>>>>> Stashed changes
         
         
         
