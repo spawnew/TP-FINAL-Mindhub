@@ -25,7 +25,7 @@ async function getData(){
     // console.log(respuesta)
     let datos = await respuesta.json()
      
-    crearlista(datos)
+    creardatos(datos)
    } catch {
     console.log('ocurrio un error con mi api')
    }
@@ -33,6 +33,7 @@ async function getData(){
 
  getData()
 
+ 
 // function crearCards(arr){
 //     let contenedor = document.querySelector('.contenedor')
 
@@ -51,8 +52,51 @@ async function getData(){
 //     console.log(contenedor)
 // }
 
+
+function crearlista (arr){ // crear la lista y la mete en las cartas
+   let lista=document.getElementById('carta')
+     lista.innerHTML=""
+     arr.events.forEach ( car => {
+     let div=document.createElement("div")
+       
+             let titulo = document.createElement('h5')
+             let foto=document.createElement('img')
+             let precio=document.createElement('h7')
+             
+             let fecha=document.createElement('h7')
+             let categoria=document.createElement('h7') 
+             let description = document.createElement('p')
+             fecha.textContent=car.date
+             let link = document.createElement('a')
+         link.textContent = 'ver mas'
+         link.href = `./detail.html?id=${car._id}`
+            
+       div.className="card"
+           categoria.textContent=car.category
+             foto.src=` ${car.image}`
+             foto.className = "card-img-top"
+             titulo.className="card.title"
+           precio.className="card-body"
+            description.textContent=car.description
+            description.className="descripcion"
+           precio.innerText="price"+" "+"$"+car.price
+         titulo.textContent=car.name
+        
+         div.appendChild(foto)
+         div.appendChild(titulo)
+         div.appendChild(fecha)
+         div.appendChild(categoria)
+         div.appendChild(precio)
+         div.appendChild(description)
+         div.appendChild(link)     
+         lista.appendChild(div)
+   }
+  
+ )
+ return arr;
+ }
     
 
-
+const dato=crearlista(arr);
 
 

@@ -15,7 +15,7 @@
 .card{
     display: flex;
     width: 20rem;
-    height:20rem ;
+    height:30rem ;
     align-items: center;
     border: solid 1px;
     margin-bottom: 50px;
@@ -35,7 +35,7 @@
  .card img {
     display: flex;
     width:14rem;
-    height:9rem;
+    height:12rem;
     align-items: center;
     justify-content:space-between;
     justify-items: center;
