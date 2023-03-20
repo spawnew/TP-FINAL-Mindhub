@@ -1,4 +1,4 @@
-console.log(data.events)
+
 const fecha=data.currentDate;
  const adelantado=[];
      for (let i=0; i<data.events.length;i++){
@@ -12,7 +12,7 @@ const fecha=data.currentDate;
 
     
 
-crearlista(adelantado)
+crearlista(adelantado);
 
 
 
@@ -27,10 +27,12 @@ const formu=document.getElementById('formulario')
     let encontre=[];  
      encontre=adelantado.filter(el =>
     
-         (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase()))
+(el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase()))
     )
          
-           
+         if(encontre.length===0){
+            crearadvertencia()
+         }  
         
    
     console.log(encontre)
@@ -117,7 +119,10 @@ function filtrar (){
     console.log(filtrado[0].value)
 
 let encontre1= filtro(adelantado,filtrado[0].value)
-  crearlista(encontre1)  
+  
+
+
+crearlista(encontre1)  
 }
 
 function filtro(arr,value){
@@ -139,7 +144,16 @@ return filtrex;
 
 
 
-
+function crearadvertencia(){
+    let lista=document.getElementById('carta')
+    
+    let div=document.createElement("div")
+      
+            let titulo = document.createElement('h5')
+            titulo.textContent="revise sus filtros "
+            div.appendChild(titulo)
+            lista.appendChild(div)
+}
 
 
 

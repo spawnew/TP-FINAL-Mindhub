@@ -12,7 +12,7 @@ const atrasado =[];
        }
     }
    
-    crearlista(atrasado);
+    crearlista(atrasado)
  
 
     function crearlista (arr){ // crear la lista y la mete en las cartas
@@ -30,21 +30,21 @@ const atrasado =[];
             let fecha=document.createElement('h7')
             let categoria=document.createElement('h7') 
             let description = document.createElement('p')
-            fecha.textContent=car.date
+            fecha.textContent=` ${car.date}`
             let link = document.createElement('a')
         link.textContent = 'ver mas'
         link.href = `./detail.html?id=${car._id}`
            
       div.className="card"
-          categoria.textContent=car.category
+          categoria.textContent=` ${car.category}`
             foto.src=` ${car.image}`
             foto.className = "card-img-top"
             titulo.className="card.title"
           precio.className="card-body"
-           description.textContent=car.description
+           description.textContent=` ${car.description}`
            description.className="descripcion"
-          precio.innerText="price"+" "+"$"+car.price
-        titulo.textContent=car.name
+          precio.innerText="Price"+" "+"$"+` ${car.price}`
+        titulo.textContent=` ${car.name}`
        
         div.appendChild(foto)
         div.appendChild(titulo)
