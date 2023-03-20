@@ -54,13 +54,13 @@ console.log(dato)
 //.checked solo devuelve un booleano 
 
 
-    // let categories = []
-    //   dato.forEach(( evento,i) => {
-    //    if (!categories.includes(dato[i].category)) {
-    //       categories.push(dato[i].category);
-    //    }
-    //   })
-    //  console.log (categories)
+     let categories = []
+       dato.forEach(( evento,i) => {
+       if (!categories.includes(dato[i].category)) {
+         categories.push(dato[i].category);
+     }
+       })
+      console.log (categories)
    
     function check(){
       let chequeados =[]
@@ -72,7 +72,14 @@ console.log(dato)
     )
       return chequeados;
     }
-     
+    function crearInput(categorias) {
+       let box= document.querySelector(".types_checkboxes");
+       box.innerHTML = categorias.map(cate => `<label>
+       <input type="checkbox" name="cafe" value="${cate}">
+       <span>${cate}</span>
+   </label>`).join("");
+   }
+   crearInput(categories)
 
        let box = document.querySelectorAll("input[type='checkbox']")
 
@@ -88,12 +95,15 @@ console.log(dato)
     let texto=input.value
     console.log(texto)
     let filtro=dato.filter(el => (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase())))
+    
+    
     if (chequeados.length > 0) {
       filtro = filtro.filter(dato => {
       
     return chequeados.some(cate => dato.category.toUpperCase().includes(cate.toUpperCase()));
     
   });
+  
 }
 
 crearlista(filtro);
