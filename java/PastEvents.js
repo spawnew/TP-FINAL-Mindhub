@@ -1,105 +1,141 @@
 
-const fecha=data.currentDate;
-const atrasado =[];
 
-
-   for (let i=0; i<data.events.length;i++){
-       if(fecha<data.events[i].date)
-       {
-           let atrasa=data.events[i]  ;
-           atrasado.push(atrasa)
-           
-       }
-    }
    
-    crearlista(atrasado)
- 
-
-    function crearlista (arr){ // crear la lista y la mete en las cartas
-   
-      let lista=document.getElementById('carta')
-    lista.innerHTML=""
-    for(let car of arr){ 
-
-    let div=document.createElement("div")
-      
-            let titulo = document.createElement('h5')
-            let foto=document.createElement('img')
-            let precio=document.createElement('h7')
-            
-            let fecha=document.createElement('h7')
-            let categoria=document.createElement('h7') 
-            let description = document.createElement('p')
-            fecha.textContent=` ${car.date}`
-            let link = document.createElement('a')
-        link.textContent = 'ver mas'
-        link.href = `./detail.html?id=${car._id}`
-           
-      div.className="card"
-          categoria.textContent=` ${car.category}`
-            foto.src=` ${car.image}`
-            foto.className = "card-img-top"
-            titulo.className="card.title"
-          precio.className="card-body"
-           description.textContent=` ${car.description}`
-           description.className="descripcion"
-          precio.innerText="Price"+" "+"$"+` ${car.price}`
-        titulo.textContent=` ${car.name}`
-       
-        div.appendChild(foto)
-        div.appendChild(titulo)
-        div.appendChild(fecha)
-        div.appendChild(categoria)
-        div.appendChild(precio)
-        div.appendChild(description)
-        div.appendChild(link)     
-        lista.appendChild(div)
-      }
-     
-  }
-  const formu=document.getElementById('formulario')
-    const input=document.getElementById('nombre')
-
-//includes()
- 
-//toUpperCase()//para poner en minuscula todo no olvidar el parentesis
-   formu.addEventListener('submit',(e)=>{ 
-        e.preventDefault();//evita q recargue la pagina
-    let encontre=[];  
-     encontre=atrasado.filter(el =>
     
-         (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase()))
-    )
-         
-           
+ 
+    async function getData(){// solo podemos poner await en funciones asincronas pongo async para las await
+      try{
+       //////genero un error para mostrar 
+       //throw new Error('se exploto el servidor')
+       let respuesta = await fetch(urlAPI)
+       // console.log(respuesta)
+       let  datos = await respuesta.json()
+  
+       const fecha=datos.currentDate;
+       const atrasado =[];
+       
+       
+          for (let i=0; i<datos.events.length;i++){
+              if(fecha>datos.events[i].date)
+              {
+                  let atrasa=datos.events[i]  ;
+                  atrasado.push(atrasa)
+                  
+              }
+           }
+    
+    crearlista(atrasado)
+    
+    ////////////////////////////////////////////////////////////////////////////////////
+    ///busqueda x input 
+    
+     const formu=document.getElementById('formulario')
+         const input=document.getElementById('nombre')
+         console.log(input)
+    
+     //includes()
+     
+     //toUpperCase()//para poner en minuscula todo no olvidar el parentesis
+        formu.addEventListener('input',(e)=>{ 
+        e.preventDefault();//evita q recargue la pagina   let encontre=[];  
         
-   
-    console.log(encontre)
-    crearlista(encontre);
-   
-     })
-
-     let box = document.querySelectorAll("input[type='checkbox']")
-
-console.log(box)
-box.forEach(boton =>boton.addEventListener('change',filtrar )) //a cada check le agrega el addevent y escucha cada vez q cambia el valor y ejecute la funcion
-
-
-
-
-function filtrar (){
-    let filtrado = Array.from(box).filter(checkbox => checkbox.checked)//ACA ME DA LOS checkbox q estan chequeados
-    console.log(filtrado[0].value)
-
-let encontre1= filtro(atrasado,filtrado[0].value)
-  crearlista(encontre1)  
-}
-
-function filtro(arr,value){
-
-    let filtrex=arr.filter(arr=>(arr.category.includes(value)))
-
-
-
-return filtrex;
-}
+          filtrar();
+          // encontre =dato.filter(el => (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase()))
+          // )
+          // console.log(encontre)
+          
+          // if(encontre.length > 0||input.value === " "){
+          //   crearlista(encontre);
+          // }
+          
+          //   else { 
+          //    console.log("no se encontro")
+          //    let texto=document.getElementById('carta')
+          //    texto.innerHTML="no se encontro"
+             
+             
+          //   }
+        })
+        
+        
+    ////////////////////////////////////////////////////////////////////////////
+    
+    
+    
+    //.checked solo devuelve un booleano 
+    
+    
+         let categories = []
+           atrasado.forEach(( evento,i) => {
+           if (!categories.includes(atrasado[i].category)) {
+             categories.push(atrasado[i].category);
+         }
+           })
+          console.log (categories)
+       
+        function check(){
+          let chequeados =[]
+          box.forEach(box1=>{
+      if (box1.checked){
+        chequeados.push(box1.value)
+      }
+          }
+        )
+          return chequeados;
+        }
+        function crearInput(categorias) {
+           let box= document.querySelector(".types_checkboxes");
+           box.innerHTML = categorias.map(cate => `<label>
+           <input type="checkbox" name="cafe" value="${cate}">
+           <span>${cate}</span>
+       </label>`).join("");
+       }
+       crearInput(categories)
+    
+           let box = document.querySelectorAll("input[type='checkbox']")
+    
+      console.log(box)
+      box.forEach(boton =>boton.addEventListener('change',filtrar )) //a cada check le agrega el addevent y escucha cada vez q cambia el valor y ejecute la funcion
+    
+      
+    
+    
+      function filtrar (){
+         let chequeados=check()
+        console.log(chequeados)
+        let texto=input.value
+        console.log(texto)
+        let filtro=atrasado.filter(el => (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase())))
+        
+        
+        if (chequeados.length > 0) {
+          filtro = filtro.filter(atrasado=> {
+          
+        return chequeados.some(cate =>atrasado.category.toUpperCase().includes(cate.toUpperCase()));
+        
+      });
+      
+    }
+    
+    crearlista(filtro);
+    }
+      
+        
+         
+    
+    
+    
+    
+    
+    
+    
+    
+    } catch {
+      console.log('ocurrio un error con mi api')
+     }
+    }
+    
+    getData();
+    
+    
+    

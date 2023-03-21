@@ -1,180 +1,137 @@
 
-const fecha=data.currentDate;
- const adelantado=[];
-     for (let i=0; i<data.events.length;i++){
-        if(fecha>data.events[i].date)
-        {
-            let atrasa=data.events[i] ;
-            adelantado.push(atrasa)
-            
-        }
-    } //solo para filtrar los eventos futuros y los pongo en una variable
+async function getData(){// solo podemos poner await en funciones asincronas pongo async para las await
+    try{
+     //////genero un error para mostrar 
+     //throw new Error('se exploto el servidor')
+     let respuesta = await fetch(urlAPI)
+     // console.log(respuesta)
+     let  datos = await respuesta.json()
 
-    
-
-crearlista(adelantado);
-
-
-
-const formu=document.getElementById('formulario')
-    const input=document.getElementById('nombre')
-
-//includes()
- 
-//toUpperCase()//para poner en minuscula todo no olvidar el parentesis
-   formu.addEventListener('submit',(e)=>{ 
-        e.preventDefault();//evita q recargue la pagina
-    let encontre=[];  
-     encontre=adelantado.filter(el =>
-    
-(el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase()))
-    )
-         
-         if(encontre.length===0){
-            crearadvertencia()
-         }  
+     const fecha=datos.currentDate;
+     const adelantado =[];
+     
+     
+        for (let i=0; i<datos.events.length;i++){
+            if(fecha<datos.events[i].date)
+            {
+                let atrasa=datos.events[i]  ;
+                adelantado.push(atrasa)
+                
+            }
+         }
+  
+  crearlista(adelantado)
+  
+  ////////////////////////////////////////////////////////////////////////////////////
+  ///busqueda x input 
+  
+   const formu=document.getElementById('formulario')
+       const input=document.getElementById('nombre')
+       console.log(input)
+  
+   //includes()
+   
+   //toUpperCase()//para poner en minuscula todo no olvidar el parentesis
+      formu.addEventListener('input',(e)=>{ 
+      e.preventDefault();//evita q recargue la pagina   let encontre=[];  
+      
+        filtrar();
+        // encontre =dato.filter(el => (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase()))
+        // )
+        // console.log(encontre)
         
-   
-    console.log(encontre)
-    crearlista(encontre);
-   
-
-    
-    
-    })// los form siempre van submit
-                                  // (e)=> lo que quiero q pase al escuchar ese
-
-  
-    
-
-  
-                                       
-                                
-
-
-  
-
-
-
-
-
-
-function crearlista (arr){ // crear la lista y la mete en las cartas
-   
-    let lista=document.getElementById('carta')
-    lista.innerHTML=""
-    for(let car of arr){ 
-
-    let div=document.createElement("div")
-      
-            let titulo = document.createElement('h5')
-            let foto=document.createElement('img')
-            let precio=document.createElement('h7')
-            
-            let fecha=document.createElement('h7')
-            let categoria=document.createElement('h7') 
-            let description = document.createElement('p')
-            fecha.textContent=car.date
-            let link = document.createElement('a')
-        link.textContent = 'ver mas'
-        link.href = `./detail.html?id=${car._id}`
+        // if(encontre.length > 0||input.value === " "){
+        //   crearlista(encontre);
+        // }
+        
+        //   else { 
+        //    console.log("no se encontro")
+        //    let texto=document.getElementById('carta')
+        //    texto.innerHTML="no se encontro"
            
-      div.className="card"
-          categoria.textContent=car.category
-            foto.src=` ${car.image}`
-            foto.className = "card-img-top"
-            titulo.className="card.title"
-          precio.className="card-body"
-           description.textContent=car.description
-           description.className="descripcion"
-          precio.innerText="price"+" "+"$"+car.price
-        titulo.textContent=car.name
-       
-        div.appendChild(foto)
-        div.appendChild(titulo)
-        div.appendChild(fecha)
-        div.appendChild(categoria)
-        div.appendChild(precio)
-        div.appendChild(description)
-        div.appendChild(link)     
-        lista.appendChild(div)
-    }
-   
-}
-/////////////////////////////////////////////////////////////////////////
-//checkbox
-
-let box = document.querySelectorAll("input[type='checkbox']")
-
-console.log(box)
-box.forEach(boton =>boton.addEventListener('change',filtrar )) //a cada check le agrega el addevent y escucha cada vez q cambia el valor y ejecute la funcion
-
-
-function filtrar (){
-  
-     let filtrado = Array.from(box).filter(checkbox => checkbox.checked)//ACA ME DA LOS checkbox q estan chequeados
-   
-   
-   
-    console.log(filtrado[0].value)
-
-let encontre1= filtro(adelantado,filtrado[0].value)
-  
-
-
-crearlista(encontre1)  
-}
-
-function filtro(arr,value){
-
-    let filtrex=arr.filter(arr =>(arr.category.includes(value)))
-
-
-
-return filtrex;
-}
-
-
-
-
-
-
-
-
-
-
-
-function crearadvertencia(){
-    let lista=document.getElementById('carta')
-    
-    let div=document.createElement("div")
+           
+        //   }
+      })
       
-            let titulo = document.createElement('h5')
-            titulo.textContent="revise sus filtros "
-            div.appendChild(titulo)
-            lista.appendChild(div)
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      
+  ////////////////////////////////////////////////////////////////////////////
+  
+  
+  
+  //.checked solo devuelve un booleano 
+  
+  
+       let categories = []
+         atrasado.forEach(( evento,i) => {
+         if (!categories.includes(adelantado[i].category)) {
+           categories.push(adelantado[i].category);
+       }
+         })
+        console.log (categories)
+     
+      function check(){
+        let chequeados =[]
+        box.forEach(box1=>{
+    if (box1.checked){
+      chequeados.push(box1.value)
+    }
+        }
+      )
+        return chequeados;
+      }
+      function crearInput(categorias) {
+         let box= document.querySelector(".types_checkboxes");
+         box.innerHTML = categorias.map(cate => `<label>
+         <input type="checkbox" name="cafe" value="${cate}">
+         <span>${cate}</span>
+     </label>`).join("");
+     }
+     crearInput(categories)
+  
+         let box = document.querySelectorAll("input[type='checkbox']")
+  
+    console.log(box)
+    box.forEach(boton =>boton.addEventListener('change',filtrar )) //a cada check le agrega el addevent y escucha cada vez q cambia el valor y ejecute la funcion
+  
     
-
-
-
-
-
+  
+  
+    function filtrar (){
+       let chequeados=check()
+      console.log(chequeados)
+      let texto=input.value
+      console.log(texto)
+      let filtro=adelantadoo.filter(el => (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase())))
+      
+      
+      if (chequeados.length > 0) {
+        filtro = filtro.filter(adelantado=> {
+        
+      return chequeados.some(cate =>adelantado.category.toUpperCase().includes(cate.toUpperCase()));
+      
+    });
+    
+  }
+  
+  crearlista(filtro);
+  }
+    
+      
+       
+  
+  
+  
+  
+  
+  
+  
+  
+  } catch {
+    console.log('ocurrio un error con mi api')
+   }
+  }
+  
+  getData();
+  
+  
+  
