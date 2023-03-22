@@ -88,23 +88,25 @@ console.log(catAdel)
     }    
     cargarprimer(dato)
     
-    function cargarprimer(arr) 
-    {
-        let container = document.getElementById("3");
-        let tableBodyHTML = "";
-        let tr1=document.createElement("tr")
-        let th1=document.createElement("th")
-        let th2=document.createElement("th")
-        let th3=document.createElement("th")
-        th1.innerHTML=capacidad.name;
+    // function cargarprimer(arr) 
+    // {
+    //     let container = document.getElementById("tr");
+        
+    //      container.tableHeadHTML = "";
+    //     arr.forEach(car => {
+  
+    //     let tr1=document.createElement("th")
+        
+       
+    //     tr1.innerHTML=capacidad.name;
 
-        container.appendChild('th1')
+    //     container.appendChild('th1')
         
             
            
            
-      
-    }    
+    //     })
+    // }    
     
 
         function sacarpromedio(arr) {

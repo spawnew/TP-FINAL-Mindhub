@@ -1,8 +1,7 @@
 
 
    
-    
- 
+     
     async function getData(){// solo podemos poner await en funciones asincronas pongo async para las await
       try{
        //////genero un error para mostrar 
