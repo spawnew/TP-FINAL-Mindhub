@@ -1,10 +1,25 @@
+let urlAPI = "https://mindhub-xj03.onrender.com/api/amazing"
+
+
+async function getData(){// solo podemos poner await en funciones asincronas pongo async para las await
+  try{
+   //////genero un error para mostrar 
+   //throw new Error('se exploto el servidor')
+   let respuesta = await fetch(urlAPI)
+   // console.log(respuesta)
+   let  datos = await respuesta.json()
+
+
+
+
+console.log(datos.events)
 const queryString = location.search
 
 const params = new URLSearchParams(queryString)
 
 const id = params.get('id')
 
-const cardId = data.events.find(car => car._id==id)
+const cardId = datos.events.find(car => car._id==id)
 console.log(cardId)
 
 
@@ -60,3 +75,10 @@ let lista=document.getElementById('carta')
         lista.appendChild(div)
     
 
+      } catch {
+        console.log('ocurrio un error con mi api')
+       }
+      }
+      
+      getData();
+      
