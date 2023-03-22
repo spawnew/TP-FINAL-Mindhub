@@ -62,7 +62,7 @@ async function getData(){// solo podemos poner await en funciones asincronas pon
   
   
        let categories = []
-         atrasado.forEach(( evento,i) => {
+         adelantado.forEach(( evento,i) => {
          if (!categories.includes(adelantado[i].category)) {
            categories.push(adelantado[i].category);
        }
