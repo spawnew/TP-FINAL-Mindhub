@@ -101,7 +101,7 @@ async function getData(){// solo podemos poner await en funciones asincronas pon
       console.log(chequeados)
       let texto=input.value
       console.log(texto)
-      let filtro=adelantadoo.filter(el => (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase())))
+      let filtro=adelantado.filter(el => (el.name.toUpperCase().includes(input.value.toUpperCase())||el.description.toUpperCase().includes(input.value.toUpperCase())||el.category.toUpperCase().includes(input.value.toUpperCase())))
       
       
       if (chequeados.length > 0) {
