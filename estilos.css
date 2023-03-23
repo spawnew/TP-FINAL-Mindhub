@@ -24,8 +24,15 @@
    
   
 }
- 
+.main1{
+   position: relative;
+   min-height:80vh;
+   
+}
 
+.formulario{
+   display:flex;
+}
  
  .card-body {
     display:flex;
@@ -65,9 +72,7 @@
 justify-content: center;
 align-items: center;    
  }
- .formu{
-    width: 21rem;
- }
+
  .card ul{
     list-style: none;
     display: flex;
@@ -102,16 +107,35 @@ ul{
 }
 
 
-@media only screen and (min-width:100px) and (max-width:600px) { 
+@media only screen and (min-width:50px) and (max-width:600px) { 
     
    .cohort{
       display:flex;
       flex-wrap: wrap;
      
    }
-  
+  .formulario {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   justify-content: space-between;
+ 
+}
+
+ .formu {
+   display: flex;
+   flex-direction: column;
+   width:6rem;
+}
+.texarea{
+   display: flex;
+   
+}
+
    img{
-      width:3rem;
+      display: flex;
+      
+      width:1rem;
    }
    .card img {
       display: flex;
@@ -149,3 +173,9 @@ ul{
    justify-content: space-around;
   
 }
+ h1{
+   display:flex;
+   font-size:1.8rem;
+
+ }
+ 
