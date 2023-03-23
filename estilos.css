@@ -10,7 +10,8 @@
 
 
  img{
-    width:5rem;
+    width:4rem;
+    padding-bottom: 10px;
  }
 .card{
     display: flex;
@@ -123,6 +124,10 @@ ul{
    }
 
 
+
+}
+.container-table{
+   display: flex;
 
 }
 
